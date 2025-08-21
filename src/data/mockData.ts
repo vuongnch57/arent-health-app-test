@@ -60,7 +60,7 @@ export const mealRecords: MealRecord[] = [
   },
   {
     id: "2",
-    image: "/images/l01.jpg",
+    image: "/images/l03.jpg",
     timestamp: "05.21.Lunch",
     category: "Lunch",
     date: "05.21",
@@ -74,14 +74,14 @@ export const mealRecords: MealRecord[] = [
   },
   {
     id: "4",
-    image: "/images/s01.jpg",
+    image: "/images/l01.jpg",
     timestamp: "05.21.Snack",
     category: "Snack",
     date: "05.21",
   },
   {
     id: "5",
-    image: "/images/m02.jpg",
+    image: "/images/m01.jpg",
     timestamp: "05.20.Morning",
     category: "Morning",
     date: "05.20",
@@ -102,7 +102,7 @@ export const mealRecords: MealRecord[] = [
   },
   {
     id: "8",
-    image: "/images/l03.jpg",
+    image: "/images/s01.jpg",
     timestamp: "05.20.Snack",
     category: "Snack",
     date: "05.20",

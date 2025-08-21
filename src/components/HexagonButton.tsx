@@ -14,17 +14,13 @@ const HexagonButton: React.FC<HexagonButtonProps> = ({ icon, label }) => {
   };
   console.log(icon);
   return (
-    <div className="flex flex-col items-center space-y-2">
+    <div className="flex flex-col items-center space-y-2 m-0">
       <button
         onClick={handleClick}
-        className="relative w-20 h-20 bg-primary-500 hover:bg-primary-400 transition-colors duration-200 flex flex-col items-center justify-center group"
-        style={{
-          clipPath:
-            "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
-        }}
+        className="hexagon-button w-[136px] h-[136px] [clip-path:polygon(25%_6.7%,75%_6.7%,100%_50%,75%_93.3%,25%_93.3%,0%_50%)] bg-gradient-to-r from-[#FFCC21] to-[#FF963C] flex flex-col items-center justify-center border-0 cursor-pointer focus:outline-none"
       >
-        <Image src={icon} alt={label} width={32} height={32} className="mb-1" />
-        <span className="text-white text-xl font-medium">{label}</span>
+        <Image src={icon} alt={label} width={56} height={56} className="max-h-14" />
+        <span className="text-center text-xl font-medium mt-1">{label}</span>
       </button>
     </div>
   );

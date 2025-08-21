@@ -43,7 +43,7 @@ export default function Home() {
 
       <section className="py-12 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="flex justify-center space-x-8 mb-12">
+          <div className="flex justify-center space-x-10">
             {mealCategories.map((category) => (
               <HexagonButton
                 key={category.id}
@@ -59,15 +59,15 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             {mealRecords.map((meal) => (
               <div key={meal.id} className="relative group cursor-pointer">
-                <div className="aspect-square relative overflow-hidden rounded-lg">
+                <div className="aspect-square relative overflow-hidden">
                   <Image
                     src={meal.image}
                     alt={`${meal.category} meal`}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-200"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary-500/80 to-transparent p-3">
-                    <span className="text-white text-sm font-medium">
+                  <div className="absolute bottom-0 left-0 py-2 pl-2 pr-6 bg-primary-300">
+                    <span className="text-white text-[15px] leading-[18px]">
                       {meal.timestamp}
                     </span>
                   </div>
