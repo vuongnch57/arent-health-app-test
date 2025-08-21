@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState, useEffect, useRef } from "react";
+import Link from "next/link";
+import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 const Menu = dynamic(() => import("./Menu"), { ssr: false });
 
@@ -32,13 +33,15 @@ const Header = () => {
         <div className="container mx-auto flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <Image src="/images/logo.png" alt="Logo" width={144} height={64} />
+            <Link href="/">
+              <Image src="/images/logo.png" alt="Logo" width={144} height={64} />
+            </Link>
           </div>
 
           {/* Navigation Menu */}
           <nav className="flex items-center space-x-8">
             {/* My Records */}
-            <div className="flex items-center space-x-2 text-white hover:text-primary-400 cursor-pointer transition-colors">
+            <Link href="/my-record" className="flex items-center space-x-2 text-white hover:text-primary-400 cursor-pointer transition-colors">
               <Image
                 src="/images/icon_memo.png"
                 alt="My Records"
@@ -46,7 +49,7 @@ const Header = () => {
                 height={32}
               />
               <span className="text-base">自分の記録</span>
-            </div>
+            </Link>
 
             {/* Challenge */}
             <div className="flex items-center space-x-2 text-white hover:text-primary-400 cursor-pointer transition-colors">

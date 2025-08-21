@@ -114,3 +114,192 @@ export const heroData = {
   image: "/images/d01.jpg",
   alt: "Healthy meal",
 };
+
+// Exercise records interface and data
+export interface ExerciseRecord {
+  id: string;
+  activity: string;
+  calories: number;
+  duration: number;
+  date: string;
+}
+
+export const exerciseRecords: ExerciseRecord[] = [
+  {
+    id: "1",
+    activity: "家事全般（立位・軽い）",
+    calories: 26,
+    duration: 10,
+    date: "2021.05.21",
+  },
+  {
+    id: "2",
+    activity: "家事全般（立位・軽い）",
+    calories: 26,
+    duration: 10,
+    date: "2021.05.21",
+  },
+  {
+    id: "3",
+    activity: "家事全般（立位・軽い）",
+    calories: 26,
+    duration: 10,
+    date: "2021.05.21",
+  },
+  {
+    id: "4",
+    activity: "家事全般（立位・軽い）",
+    calories: 26,
+    duration: 10,
+    date: "2021.05.21",
+  },
+  {
+    id: "5",
+    activity: "家事全般（立位・軽い）",
+    calories: 26,
+    duration: 10,
+    date: "2021.05.20",
+  },
+  {
+    id: "6",
+    activity: "家事全般（立位・軽い）",
+    calories: 26,
+    duration: 10,
+    date: "2021.05.20",
+  },
+  {
+    id: "7",
+    activity: "家事全般（立位・軽い）",
+    calories: 26,
+    duration: 10,
+    date: "2021.05.19",
+  },
+  {
+    id: "8",
+    activity: "家事全般（立位・軽い）",
+    calories: 26,
+    duration: 10,
+    date: "2021.05.19",
+  },
+  {
+    id: "9",
+    activity: "家事全般（立位・軽い）",
+    calories: 26,
+    duration: 10,
+    date: "2021.05.18",
+  },
+  {
+    id: "10",
+    activity: "家事全般（立位・軽い）",
+    calories: 26,
+    duration: 10,
+    date: "2021.05.18",
+  },
+  {
+    id: "11",
+    activity: "家事全般（立位・軽い）",
+    calories: 26,
+    duration: 10,
+    date: "2021.05.18",
+  },
+  {
+    id: "12",
+    activity: "家事全般（立位・軽い）",
+    calories: 26,
+    duration: 10,
+    date: "2021.05.18",
+  },
+];
+
+// Diary entries interface and data
+export interface DiaryEntry {
+  id: string;
+  date: string;
+  time: string;
+  label: string;
+  content: string;
+}
+
+export const diaryEntries: DiaryEntry[] = [
+  {
+    id: "1",
+    date: "2021.05.21",
+    time: "23:25",
+    label: "私の日記の記録が一部表示されます。",
+    content:
+      "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト...",
+  },
+  {
+    id: "2",
+    date: "2021.05.20",
+    time: "23:25",
+    label: "私の日記の記録が一部表示されます。",
+    content:
+      "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト...",
+  },
+  {
+    id: "3",
+    date: "2021.05.19",
+    time: "23:25",
+    label: "私の日記の記録が一部表示されます。",
+    content:
+      "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト...",
+  },
+  {
+    id: "4",
+    date: "2021.05.18",
+    time: "23:25",
+    label: "私の日記の記録が一部表示されます。",
+    content:
+      "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト...",
+  },
+  {
+    id: "5",
+    date: "2021.05.17",
+    time: "23:25",
+    label: "私の日記の記録が一部表示されます。",
+    content:
+      "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト...",
+  },
+  {
+    id: "6",
+    date: "2021.05.16",
+    time: "23:25",
+    label: "私の日記の記録が一部表示されます。",
+    content:
+      "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト...",
+  },
+  {
+    id: "7",
+    date: "2021.05.15",
+    time: "23:25",
+    label: "私の日記の記録が一部表示されます。",
+    content:
+      "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト...",
+  },
+  {
+    id: "8",
+    date: "2021.05.14",
+    time: "23:25",
+    label: "私の日記の記録が一部表示されます。",
+    content:
+      "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト...",
+  },
+  {
+    id: "9",
+    date: "2021.05.13",
+    time: "23:25",
+    label: "私の日記の記録が一部表示されます。",
+    content:
+      "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト...",
+  },
+
+  {
+    id: "10",
+    date: "2021.05.12",
+    time: "23:25",
+    label: "私の日記の記録が一部表示されます。",
+    content:
+      "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト...",
+  },
+];

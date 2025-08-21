@@ -2,12 +2,12 @@ import React from "react";
 import Link from "next/link";
 
 const MENU_ITEMS = [
-  { label: "自分の記録", href: "/my-records" },
-  { label: "体重グラフ", href: "/weight-graph" },
-  { label: "目標", href: "/goals" },
-  { label: "選択中のコース", href: "/selected-course" },
+  { label: "自分の記録", href: "/my-record" },
+  { label: "体重グラフ", href: "#" },
+  { label: "目標", href: "#" },
+  { label: "選択中のコース", href: "#" },
   { label: "コラム一覧", href: "/columns" },
-  { label: "設定", href: "/settings" },
+  { label: "設定", href: "#" },
 ];
 
 interface MenuProps {
