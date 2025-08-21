@@ -21,6 +21,18 @@
   --color-gray-400: #777777;
 }
 
+/* Container utility class */
+.container {
+  max-width: 1186px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.page {
+  padding: 60px 0;
+  min-height: 100vh;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;

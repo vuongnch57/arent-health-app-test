@@ -29,7 +29,7 @@ const Header = () => {
   return (
     <>
       <header className="bg-dark-500 px-6">
-        <div className="max-w-5xl mx-auto flex items-center justify-between">
+        <div className="container mx-auto flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
             <Image src="/images/logo.png" alt="Logo" width={144} height={64} />
