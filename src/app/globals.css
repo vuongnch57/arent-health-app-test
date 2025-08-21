@@ -10,6 +10,15 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
+  /* Custom Color Palette */
+  --color-primary-300: #FFCC21;
+  --color-primary-400: #FF963C;
+  --color-primary-500: #EA6C00;
+  --color-secondary-300: #8FE9D0;
+  --color-dark-600: #2E2E2E;
+  --color-dark-500: #414141;
+  --color-gray-400: #777777;
 }
 
 @media (prefers-color-scheme: dark) {
