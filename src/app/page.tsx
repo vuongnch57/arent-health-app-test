@@ -46,8 +46,8 @@ export default function Home() {
       </section>
 
       <section className="py-12 px-6">
-        <div className="container mx-auto">
-          <div className="flex justify-center space-x-10">
+        <div className="container a mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {mealCategories.map((category) => (
               <HexagonButton
                 key={category.id}
@@ -71,7 +71,7 @@ export default function Home() {
                     className="object-cover group-hover:scale-105 transition-transform duration-200"
                   />
                   <div className="absolute bottom-0 left-0 py-2 pl-2 pr-6 bg-primary-300">
-                    <span className="text-white text-[15px] leading-[18px]">
+                    <span className="text-white text-base-tight">
                       {meal.timestamp}
                     </span>
                   </div>

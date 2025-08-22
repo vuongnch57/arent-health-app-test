@@ -54,11 +54,11 @@ const CircularProgress: React.FC<CircularProgressProps> = ({
       >
         <div className="flex items-baseline gap-x-2">
           {currentDay && (
-            <div className="text-lg leading-[22px] font-medium tracking-wider uppercase">
+            <div className="text-lg-compact font-medium tracking-wider uppercase">
               {currentDay}
             </div>
           )}
-          <div className="text-[25px] leading-[30px]">{percentage}%</div>
+          <div className="text-3xl-tight">{percentage}%</div>
         </div>
       </div>
     </div>
