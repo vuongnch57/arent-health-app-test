@@ -9,9 +9,18 @@ export interface MealRecord {
 }
 
 export interface ChartDataPoint {
-  month: string;
+  label: string;
   value1: number;
   value2: number;
+}
+
+export type TimePeriod = 'day' | 'week' | 'month' | 'year';
+
+export interface ChartData {
+  day: ChartDataPoint[];
+  week: ChartDataPoint[];
+  month: ChartDataPoint[];
+  year: ChartDataPoint[];
 }
 
 export interface ProgressData {
@@ -25,20 +34,90 @@ export const progressData: ProgressData = {
   percentage: 75,
 };
 
-// Chart data for the line chart
-export const chartData: ChartDataPoint[] = [
-  { month: "6月", value1: 100, value2: 95 },
-  { month: "7月", value1: 85, value2: 88 },
-  { month: "8月", value1: 75, value2: 82 },
-  { month: "9月", value1: 80, value2: 78 },
-  { month: "10月", value1: 85, value2: 75 },
-  { month: "11月", value1: 90, value2: 70 },
-  { month: "12月", value1: 95, value2: 68 },
-  { month: "1月", value1: 88, value2: 65 },
-  { month: "2月", value1: 82, value2: 62 },
-  { month: "3月", value1: 78, value2: 58 },
-  { month: "4月", value1: 75, value2: 55 },
-  { month: "5月", value1: 70, value2: 52 },
+// Chart data for different time periods
+export const chartData: ChartData = {
+  day: [
+    { label: "6/16", value1: 72, value2: 58 },
+    { label: "6/17", value1: 74, value2: 55 },
+    { label: "6/18", value1: 71, value2: 60 },
+    { label: "6/19", value1: 75, value2: 52 },
+    { label: "6/20", value1: 73, value2: 57 },
+    { label: "6/21", value1: 76, value2: 50 },
+    { label: "6/22", value1: 78, value2: 53 },
+    { label: "6/23", value1: 77, value2: 48 },
+    { label: "6/24", value1: 79, value2: 55 },
+    { label: "6/25", value1: 81, value2: 45 },
+    { label: "6/26", value1: 80, value2: 52 },
+    { label: "6/27", value1: 82, value2: 47 },
+  ],
+  week: [
+    { label: "6月2週", value1: 95, value2: 72 },
+    { label: "6月3週", value1: 98, value2: 68 },
+    { label: "6月4週", value1: 93, value2: 75 },
+    { label: "7月1週", value1: 96, value2: 70 },
+    { label: "7月2週", value1: 99, value2: 65 },
+    { label: "7月3週", value1: 95, value2: 78 },
+    { label: "7月4週", value1: 97, value2: 62 },
+    { label: "8月1週", value1: 92, value2: 80 },
+    { label: "8月2週", value1: 94, value2: 58 },
+    { label: "8月3週", value1: 91, value2: 82 },
+    { label: "8月4週", value1: 93, value2: 60 },
+    { label: "9月1週", value1: 95, value2: 75 },
+  ],
+  month: [
+    { label: "6月", value1: 100, value2: 95 },
+    { label: "7月", value1: 85, value2: 88 },
+    { label: "8月", value1: 75, value2: 82 },
+    { label: "9月", value1: 80, value2: 78 },
+    { label: "10月", value1: 85, value2: 75 },
+    { label: "11月", value1: 90, value2: 70 },
+    { label: "12月", value1: 95, value2: 68 },
+    { label: "1月", value1: 88, value2: 65 },
+    { label: "2月", value1: 82, value2: 62 },
+    { label: "3月", value1: 78, value2: 58 },
+    { label: "4月", value1: 75, value2: 55 },
+    { label: "5月", value1: 70, value2: 52 },
+  ],
+  year: [
+    { label: "2019", value1: 105, value2: 75 },
+    { label: "2020", value1: 98, value2: 68 },
+    { label: "2021", value1: 92, value2: 62 },
+    { label: "2022", value1: 86, value2: 55 },
+    { label: "2023", value1: 80, value2: 48 },
+  ],
+};
+
+// Record Cards data
+export interface RecordCard {
+  id: string;
+  title: string;
+  subtitle: string;
+  image: string;
+  alt: string;
+}
+
+export const recordCards: RecordCard[] = [
+  {
+    id: "body-record",
+    title: "BODY RECORD",
+    subtitle: "自分のカラダの記録",
+    image: "/images/MyRecommend-1.jpg",
+    alt: "Body Record"
+  },
+  {
+    id: "my-exercise",
+    title: "MY EXERCISE",
+    subtitle: "自分の運動の記録",
+    image: "/images/MyRecommend-2.jpg",
+    alt: "My Exercise"
+  },
+  {
+    id: "my-diary",
+    title: "MY DIARY",
+    subtitle: "自分の日記",
+    image: "/images/MyRecommend-3.jpg",
+    alt: "My Diary"
+  }
 ];
 
 // Meal categories

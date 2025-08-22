@@ -35,8 +35,8 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="flex-1 p-6 flex items-center justify-center">
-            <LineChart data={chartData} />
+          <div className="flex-1 h-full flex items-center justify-center">
+            <LineChart data={chartData} height="h-[34vw]" />
           </div>
         </div>
       </section>

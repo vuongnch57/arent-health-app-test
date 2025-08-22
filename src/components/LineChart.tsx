@@ -1,122 +1,122 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { ChartDataPoint } from '@/data/mockData';
+import React, { useState } from "react";
+import {
+  LineChart as RechartsLineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  ResponsiveContainer,
+  Dot,
+} from "recharts";
+import { TimePeriod, ChartData } from "@/data/mockData";
 
 interface LineChartProps {
-  data: ChartDataPoint[];
+  data: ChartData;
+  showPeriodOptions?: boolean;
+  height: string;
 }
 
-const LineChart: React.FC<LineChartProps> = ({ data }) => {
-  const maxValue = Math.max(...data.flatMap(d => [d.value1, d.value2]));
-  const chartWidth = 400;
-  const chartHeight = 200;
-  const padding = 40;
+// Custom dot component for the chart points
+interface CustomDotProps {
+  cx?: number;
+  cy?: number;
+  stroke?: string;
+}
 
-  const getX = (index: number) => padding + (index / (data.length - 1)) * (chartWidth - 2 * padding);
-  const getY = (value: number) => chartHeight - padding - ((value / maxValue) * (chartHeight - 2 * padding));
+const CustomDot = (props: CustomDotProps) => {
+  const { cx, cy, stroke } = props;
+  if (cx === undefined || cy === undefined) return null;
+  return (
+    <Dot cx={cx} cy={cy} r={4} fill={stroke} stroke={stroke} strokeWidth={2} />
+  );
+};
 
-  // Generate path for line 1 (yellow)
-  const path1 = data.map((point, index) => {
-    const x = getX(index);
-    const y = getY(point.value1);
-    return `${index === 0 ? 'M' : 'L'} ${x} ${y}`;
-  }).join(' ');
+const LineChart: React.FC<LineChartProps> = ({ data, showPeriodOptions, height }) => {
+  const [selectedPeriod, setSelectedPeriod] = useState<TimePeriod>("month");
 
-  // Generate path for line 2 (cyan)
-  const path2 = data.map((point, index) => {
-    const x = getX(index);
-    const y = getY(point.value2);
-    return `${index === 0 ? 'M' : 'L'} ${x} ${y}`;
-  }).join(' ');
+  const currentData = data[selectedPeriod];
+
+  const handlePeriodChange = (period: TimePeriod) => {
+    setSelectedPeriod(period);
+  };
+
+  const getPeriodLabel = (period: TimePeriod) => {
+    switch (period) {
+      case "day":
+        return "日";
+      case "week":
+        return "週";
+      case "month":
+        return "月";
+      case "year":
+        return "年";
+    }
+  };
 
   return (
-    <div className="bg-dark-600 p-6 rounded-lg">
-      <svg width={chartWidth} height={chartHeight} className="w-full h-auto">
-        {/* Grid lines */}
-        {[0, 20, 40, 60, 80, 100].map(value => {
-          const y = getY(value);
-          return (
-            <line
-              key={value}
-              x1={padding}
-              y1={y}
-              x2={chartWidth - padding}
-              y2={y}
-              stroke="#444"
-              strokeWidth={1}
-            />
-          );
-        })}
-        
-        {/* Vertical grid lines */}
-        {data.map((_, index) => {
-          const x = getX(index);
-          return (
-            <line
-              key={index}
-              x1={x}
-              y1={padding}
-              x2={x}
-              y2={chartHeight - padding}
-              stroke="#444"
-              strokeWidth={1}
-            />
-          );
-        })}
-
-        {/* Line 1 (Yellow) */}
-        <path
-          d={path1}
-          fill="none"
-          stroke="#FFCC21"
-          strokeWidth={2}
-        />
-
-        {/* Line 2 (Cyan) */}
-        <path
-          d={path2}
-          fill="none"
-          stroke="#8FE9D0"
-          strokeWidth={2}
-        />
-
-        {/* Data points for line 1 */}
-        {data.map((point, index) => (
-          <circle
-            key={`point1-${index}`}
-            cx={getX(index)}
-            cy={getY(point.value1)}
-            r={3}
-            fill="#FFCC21"
+    <div className={`w-full bg-dark-500 relative ${height}`}>
+      {/* Chart */}
+      <ResponsiveContainer width="100%" height="100%">
+        <RechartsLineChart
+          data={currentData}
+          margin={{
+            top: 20,
+            left: 30,
+            right: 30,
+          }}
+        >
+          <CartesianGrid
+            strokeDasharray="none"
+            stroke="#8b8b8b"
+            strokeWidth={1}
+            horizontal={false}
+            vertical={true}
           />
-        ))}
-
-        {/* Data points for line 2 */}
-        {data.map((point, index) => (
-          <circle
-            key={`point2-${index}`}
-            cx={getX(index)}
-            cy={getY(point.value2)}
-            r={3}
-            fill="#8FE9D0"
+          <XAxis
+            dataKey="label"
+            axisLine={false}
+            tickLine={false}
+            tick={{ fill: "#ffffff", fontSize: 12 }}
+            interval={0}
           />
-        ))}
-
-        {/* X-axis labels */}
-        {data.map((point, index) => (
-          <text
-            key={`label-${index}`}
-            x={getX(index)}
-            y={chartHeight - 10}
-            fill="white"
-            fontSize="12"
-            textAnchor="middle"
-          >
-            {point.month}
-          </text>
-        ))}
-      </svg>
+          <YAxis hide />
+          <Line
+            type="monotone"
+            dataKey="value1"
+            stroke="#FFCC21"
+            strokeWidth={3}
+            dot={<CustomDot />}
+            activeDot={{ r: 6, fill: "#FFCC21" }}
+          />
+          <Line
+            type="monotone"
+            dataKey="value2"
+            stroke="#8FE9D0"
+            strokeWidth={3}
+            dot={<CustomDot />}
+            activeDot={{ r: 6, fill: "#8FE9D0" }}
+          />
+        </RechartsLineChart>
+      </ResponsiveContainer>
+      {showPeriodOptions && (
+        <div className="flex items-center gap-x-8 px-3">
+          {(["day", "week", "month", "year"] as TimePeriod[]).map((period) => (
+            <button
+              key={period}
+              onClick={() => handlePeriodChange(period)}
+              className={`px-4 py-1 text-[11px] rounded-full font-medium transition-colors cursor-pointer ${
+                selectedPeriod === period
+                  ? "bg-primary-300 text-white"
+                  : "bg-white text-primary-300"
+              }`}
+            >
+              {getPeriodLabel(period)}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

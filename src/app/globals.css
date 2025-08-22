@@ -24,7 +24,7 @@
 
 /* Container utility class */
 .container {
-  max-width: 1186px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 0 1rem;
 }
