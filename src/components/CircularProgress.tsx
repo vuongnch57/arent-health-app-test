@@ -1,15 +1,18 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React from "react";
 
 interface CircularProgressProps {
   percentage: number;
-  currentDay: string;
+  currentDay?: string;
 }
 
-const CircularProgress: React.FC<CircularProgressProps> = ({ percentage, currentDay }) => {
-  const size = 140;
-  const strokeWidth = 3;
+const CircularProgress: React.FC<CircularProgressProps> = ({
+  percentage,
+  currentDay,
+}) => {
+  const size = 180;
+  const strokeWidth = 4;
   const radius = (size - strokeWidth) / 2;
   const circumference = radius * 2 * Math.PI;
   const strokeDasharray = `${circumference} ${circumference}`;
@@ -17,39 +20,46 @@ const CircularProgress: React.FC<CircularProgressProps> = ({ percentage, current
 
   return (
     <div className="relative inline-flex items-center justify-center">
-      <svg
-        width={size}
-        height={size}
-        className="transform -rotate-90"
-      >
+      <svg width={size} height={size} className="transform -rotate-90">
         {/* Background circle */}
-        <circle
+        {/* <circle
           cx={size / 2}
           cy={size / 2}
           r={radius}
-          stroke="rgba(255, 255, 255, 0.3)"
+          stroke="rgba(255, 206, 84, 0.2)"
           strokeWidth={strokeWidth}
           fill="transparent"
-        />
+        /> */}
         {/* Progress circle */}
         <circle
           cx={size / 2}
           cy={size / 2}
           r={radius}
-          stroke="#FFCC21"
+          stroke="#FFFFFF"
           strokeWidth={strokeWidth}
           fill="transparent"
           strokeDasharray={strokeDasharray}
           strokeDashoffset={strokeDashoffset}
           strokeLinecap="round"
           style={{
-            transition: 'stroke-dashoffset 0.5s ease-in-out',
+            filter: "drop-shadow(0px 0px 6px rgba(252, 116, 0, 1))",
           }}
         />
       </svg>
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-        <div className="text-lg font-medium tracking-wide">{currentDay}</div>
-        <div className="text-2xl font-bold">{percentage}%</div>
+      <div
+        className="absolute inset-0 flex items-center justify-center text-white"
+        style={{
+          textShadow: "0px 0px 6px rgba(252, 165, 0, 1)",
+        }}
+      >
+        <div className="flex items-baseline gap-x-2">
+          {currentDay && (
+            <div className="text-lg leading-[22px] font-medium tracking-wider uppercase">
+              {currentDay}
+            </div>
+          )}
+          <div className="text-[25px] leading-[30px]">{percentage}%</div>
+        </div>
       </div>
     </div>
   );

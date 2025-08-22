@@ -16,6 +16,7 @@ interface LineChartProps {
   data: ChartData;
   showPeriodOptions?: boolean;
   height: string;
+  backgroundColor?: string;
 }
 
 // Custom dot component for the chart points
@@ -33,7 +34,12 @@ const CustomDot = (props: CustomDotProps) => {
   );
 };
 
-const LineChart: React.FC<LineChartProps> = ({ data, showPeriodOptions, height }) => {
+const LineChart: React.FC<LineChartProps> = ({
+  data,
+  showPeriodOptions,
+  height,
+  backgroundColor = "bg-dark-500",
+}) => {
   const [selectedPeriod, setSelectedPeriod] = useState<TimePeriod>("month");
 
   const currentData = data[selectedPeriod];
@@ -56,7 +62,7 @@ const LineChart: React.FC<LineChartProps> = ({ data, showPeriodOptions, height }
   };
 
   return (
-    <div className={`w-full bg-dark-500 relative ${height}`}>
+    <div className={`w-full ${backgroundColor} relative ${height}`}>
       {/* Chart */}
       <ResponsiveContainer width="100%" height="100%">
         <RechartsLineChart

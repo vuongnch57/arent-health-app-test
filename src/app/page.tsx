@@ -36,13 +36,17 @@ export default function Home() {
             </div>
           </div>
           <div className="flex-1 h-full flex items-center justify-center">
-            <LineChart data={chartData} height="h-[34vw]" />
+            <LineChart
+              data={chartData}
+              height="h-[34vw]"
+              backgroundColor="bg-dark-600"
+            />
           </div>
         </div>
       </section>
 
       <section className="py-12 px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="container mx-auto">
           <div className="flex justify-center space-x-10">
             {mealCategories.map((category) => (
               <HexagonButton
@@ -55,7 +59,7 @@ export default function Home() {
         </div>
       </section>
       <section className="py-8 px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="container mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             {mealRecords.map((meal) => (
               <div key={meal.id} className="relative group cursor-pointer">

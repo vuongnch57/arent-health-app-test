@@ -52,7 +52,7 @@ export default function MyRecord() {
             2021.05.21
           </div>
         </div>
-        <LineChart data={chartData} height={224} />
+        <LineChart data={chartData} height="h-[224px]" />
       </section>
 
       {/* My Exercise Section */}

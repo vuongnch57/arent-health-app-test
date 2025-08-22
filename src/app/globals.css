@@ -10,6 +10,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-noto-sans-jp: var(--font-noto-sans-jp);
   
   /* Custom Color Palette */
   --color-primary-300: #FFCC21;
